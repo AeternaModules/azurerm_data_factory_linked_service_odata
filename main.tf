@@ -1,5 +1,5 @@
-resource "azurerm_data_factory_linked_service_odata" "data_factory_linked_service_odatas" {
-  for_each = var.data_factory_linked_service_odatas
+resource "azurerm_data_factory_linked_service_odata" "data_factory_linked_service_odata" {
+  for_each = var.data_factory_linked_service_odata
 
   data_factory_id          = each.value.data_factory_id
   name                     = each.value.name

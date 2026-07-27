@@ -1,6 +1,6 @@
-variable "data_factory_linked_service_odatas" {
+variable "data_factory_linked_service_odata" {
   description = <<EOT
-Map of data_factory_linked_service_odatas, attributes below
+Map of data_factory_linked_service_odata, attributes below
 Required:
     - data_factory_id
     - name
@@ -32,7 +32,7 @@ EOT
   }))
   validation {
     condition = alltrue([
-      for k, v in var.data_factory_linked_service_odatas : (
+      for k, v in var.data_factory_linked_service_odata : (
         length(v.url) > 0
       )
     ])
@@ -40,7 +40,7 @@ EOT
   }
   validation {
     condition = alltrue([
-      for k, v in var.data_factory_linked_service_odatas : (
+      for k, v in var.data_factory_linked_service_odata : (
         v.basic_authentication == null || (length(v.basic_authentication.username) > 0)
       )
     ])
@@ -48,7 +48,7 @@ EOT
   }
   validation {
     condition = alltrue([
-      for k, v in var.data_factory_linked_service_odatas : (
+      for k, v in var.data_factory_linked_service_odata : (
         v.basic_authentication == null || (length(v.basic_authentication.password) > 0)
       )
     ])
@@ -56,7 +56,7 @@ EOT
   }
   validation {
     condition = alltrue([
-      for k, v in var.data_factory_linked_service_odatas : (
+      for k, v in var.data_factory_linked_service_odata : (
         v.description == null || (length(v.description) > 0)
       )
     ])
@@ -64,7 +64,7 @@ EOT
   }
   validation {
     condition = alltrue([
-      for k, v in var.data_factory_linked_service_odatas : (
+      for k, v in var.data_factory_linked_service_odata : (
         v.integration_runtime_name == null || (length(v.integration_runtime_name) > 0)
       )
     ])
