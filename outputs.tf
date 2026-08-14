@@ -12,7 +12,7 @@ output "data_factory_linked_service_odata_annotations" {
 }
 output "data_factory_linked_service_odata_basic_authentication" {
   description = "Map of basic_authentication values across all data_factory_linked_service_odata, keyed the same as var.data_factory_linked_service_odata"
-  value       = { for k, v in azurerm_data_factory_linked_service_odata.data_factory_linked_service_odata : k => v.basic_authentication if v.basic_authentication != null && length(v.basic_authentication) > 0 }
+  value       = { for k, v in azurerm_data_factory_linked_service_odata.data_factory_linked_service_odata : k => one(v.basic_authentication) if v.basic_authentication != null && length(v.basic_authentication) > 0 }
   sensitive   = true
 }
 output "data_factory_linked_service_odata_data_factory_id" {
